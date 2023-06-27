@@ -15,6 +15,6 @@ spec:
       containers:
         - name: eagles-container
           image: cmlakin/eaglesproject3
-          imagePullPolicy: always
+          imagePullPolicy: Always
           ports:
             - containerPort: 3000
