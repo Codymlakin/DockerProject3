@@ -4,7 +4,12 @@ pipeline {
     stages {
         stage('Build Docker image') {
             steps {
-                sh 'docker build -t cmlakin/eaglesproject3 .'
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'jenkins', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+    sh 'docker build -t cmlakin/eaglesproject3 .'
+    sh 'docker push cmlakin/eaglesproject3'
+}
+                }
             }
         }
 
