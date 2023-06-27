@@ -12,8 +12,8 @@ pipeline {
             steps {
                     sh 'aws eks update-kubeconfig --name EaglesCluster'
                     sh 'kubectl get nodes'
-                    sh 'kubectl apply -f eagles-deployment.yaml'
-                    sh 'kubectl apply -f eagles-service.yaml'
+                    sh 'kubectl apply -f deployment.yaml'
+                    sh 'kubectl apply -f service.yaml'
                     
                 }
             }
