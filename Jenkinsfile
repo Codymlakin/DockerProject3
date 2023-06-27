@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build Docker image') {
             steps {
-                sh 'docker build -t cmlakin/EaglesProject3 .'
+                sh 'docker build -t cmlakin/eaglesproject3 .'
             }
         }
 
