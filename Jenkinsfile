@@ -10,6 +10,7 @@ pipeline {
 
         stage('Deploy to Kubernetes') {
             steps {
+                    sh 'aws eks update-kubeconfig --name EaglesCluster'
                     sh 'kubectl get nodes'
                     // sh 'kubectl apply -f your-kubernetes-manifests.yaml'
                     // Replace 'your-kubeconfig-credentials' with the ID of your Kubernetes configuration credentials in Jenkins
