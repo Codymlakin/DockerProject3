@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eagles-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: eaglesapp
+  template:
+    metadata:
+      labels:
+        app: eaglesapp
+    spec:
+      containers:
+        - name: eagles-container
+          image: cmlakin/eaglesproject3
+          ports:
+            - containerPort: 3000
