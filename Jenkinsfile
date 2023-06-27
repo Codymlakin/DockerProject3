@@ -5,7 +5,7 @@ pipeline {
         stage('Restart Deployment') {
             steps {
                 sh 'aws eks update-kubeconfig --name EaglesCluster'
-                sh 'kubectl rollout restart deployment eagles-deployment'
+                
             }
         }
 
@@ -27,6 +27,7 @@ pipeline {
                 sh 'kubectl apply -f deployment.yaml'
                 sh 'kubectl apply -f service.yaml'
                 sh 'kubectl get service eagles-service'
+                sh 'kubectl rollout restart deployment eagles-deployment'
             }
         }
     }
