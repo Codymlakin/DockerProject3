@@ -1,3 +1,18 @@
+  agent any
+  stages {
+    stage('Example') {
+      steps {
+        withAWS(credentials: 'AKIA3NT52SLXJIHOZ47Z') {
+
+          // Your AWS-related steps or commands here
+
+        }
+      }
+    }
+  }
+}
+
+
 pipeline {
     agent any
 
