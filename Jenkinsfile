@@ -2,7 +2,7 @@
   stages {
     stage('Example') {
       steps {
-        withAWS(credentials: 'AKIA3NT52SLXJIHOZ47Z') {
+        withAWS(credentials: 'aws_creds') {
 
           // Your AWS-related steps or commands here
 
