@@ -32,7 +32,7 @@ pipeline {
             steps {
                 script {
                     withAWS(credentials: 'aws_creds') {
-                        sh 'aws eks update-kubeconfig --name EaglesCluster --region us-east'
+                        sh 'aws eks update-kubeconfig --name EaglesCluster --region us-east-1'
                         sh 'kubectl get nodes'
                         sh 'kubectl apply -f deployment.yaml'
                         sh 'kubectl apply -f service.yaml'
