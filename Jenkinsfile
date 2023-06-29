@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    enviroment {
+        AWS_ACCESS_KEY_ID = credentials('aws_access_key_id')
+        AWS_SECRET_ACCESS_KEY_ID = credentials('aws_secret_access_key_id')
+    }
 
     stages {
         stage('Restart Deployment') {
@@ -28,7 +32,7 @@ pipeline {
             steps {
                 script {
                     withAWS(credentials: 'aws_creds') {
-                        sh 'aws eks update-kubeconfig --name EaglesCluster'
+                        sh 'aws eks update-kubeconfig --name EaglesCluster --region us-east'
                         sh 'kubectl get nodes'
                         sh 'kubectl apply -f deployment.yaml'
                         sh 'kubectl apply -f service.yaml'
