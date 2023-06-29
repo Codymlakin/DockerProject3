@@ -1,15 +1,14 @@
-  agent any
-  stages {
-    stage('Example') {
-      steps {
-        withAWS(credentials: 'aws_creds') {
+//   agent any
+//   stages {
+//     stage('Example') {
+//       steps {
+//         script{
+//         withAWS(credentials: 'aws_creds') {
 
-          // Your AWS-related steps or commands here
-
-        }
-      }
-    }
-  }
+//         }
+//       }
+//     }
+//   }
 
 
 
@@ -19,8 +18,11 @@ pipeline {
     stages {
         stage('Restart Deployment') {
             steps {
-                sh 'aws eks update-kubeconfig --name EaglesCluster'
-                
+                script {
+                    withAWS(credentials: 'aws_creds') {
+                        sh 'aws eks update-kubeconfig --name EaglesCluster'
+                    }
+                }
             }
         }
 
